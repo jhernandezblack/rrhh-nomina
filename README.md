@@ -2,6 +2,61 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 
+## Structure of the folder
+
+src/
+├── app/
+│   ├── core/                  # Core application modules
+│   │   ├── auth/              # Authentication related
+│   │   │   ├── guards/        # Route guards
+│   │   │   ├── interceptors/  # HTTP interceptors
+│   │   │   ├── services/      # Auth services
+│   │   │   └── models/        # Auth models/interfaces
+│   │   ├── api/               # API communication
+│   │   │   ├── services/      # API services
+│   │   │   ├── models/        # API models/interfaces
+│   │   │   └── utils/        # API utilities
+│   │   ├── interceptors/      # Global interceptors
+│   │   ├── utils/             # Utility functions
+│   │   └── core.config.ts     # Core configuration
+│   │
+│   ├── shared/                # Shared components/modules
+│   │   ├── components/        # Reusable components
+│   │   │   ├── header/        # Header component
+│   │   │   ├── footer/        # Footer component
+│   │   │   ├── modal/         # Modal system
+│   │   │   └── ...            # Other shared components
+│   │   ├── directives/        # Shared directives
+│   │   ├── pipes/             # Shared pipes
+│   │   └── services/         # Shared services
+│   │
+│   ├── features/              # Feature modules
+│   │   ├── home/              # Home feature
+│   │   ├── dashboard/         # Dashboard feature
+│   │   └── ...               # Other features
+│   │
+│   ├── styles/                # Global SCSS
+│   │   ├── _variables.scss    # Bootstrap variables override
+│   │   ├── _mixins.scss       # Custom mixins
+│   │   ├── _buttons.scss      # Button styles
+│   │   ├── _forms.scss        # Form controls styles
+│   │   ├── _typography.scss   # Typography styles
+│   │   └── _global.scss       # Global styles
+│   │
+│   ├── app.config.ts          # Application configuration
+│   ├── app.routes.ts          # Application routes
+│   └── app.component.ts       # Root component
+│
+├── assets/
+│   ├── images/                # Application images
+│   └── scss/                  # Additional SCSS files
+│
+├── environments/              # Environment configurations
+└── main.ts                    # Application entry point
+
+
+
+
 ## Development server
 
 To start a local development server, run:
