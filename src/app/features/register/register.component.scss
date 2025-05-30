@@ -1,0 +1,14 @@
+@use '../../../styles/auth-theme';
+@use '../../../styles/variables' as *;
+
+.auth-wrapper {
+  @extend .auth-wrapper;
+}
+
+.auth-card {
+  @extend .auth-card;
+
+  input {
+    background-color: $color-input-bg;
+  }
+}

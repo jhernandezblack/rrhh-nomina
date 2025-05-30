@@ -1,0 +1,66 @@
+<!-- src/app/features/main/main.component.html -->
+<div class="main-layout">
+  <!-- Topbar -->
+  <header class="topbar d-flex align-items-center justify-content-between px-4">
+    <div class="d-flex align-items-center gap-3">
+      <div class="logo fw-bold text-white">RRHH Nómina</div>
+      <span class="text-white fw-semibold">2025</span>
+      <a href="#" class="link-light">Beneficios</a>
+    </div>
+    <div class="user-info d-flex align-items-center gap-2">
+      <img src="/assets/images/avatar.jpg" class="rounded-circle" width="40" height="40" alt="Avatar">
+      <span class="text-white fw-semibold">Juan Pérez</span>
+    </div>
+  </header>
+
+  <div class="main-container d-flex">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <ul>
+        <li class="active"><i class="bi bi-folder"></i> Archivos</li>
+        <li><i class="bi bi-graph-up"></i> Reportes</li>
+        <li><i class="bi bi-currency-dollar"></i> Nómina</li>
+        <li><i class="bi bi-file-earmark"></i> Documentos</li>
+        <li><i class="bi bi-clock"></i> Horario</li>
+        <li><i class="bi bi-gear"></i> Configuración</li>
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <main class="content p-4">
+      <div class="greeting mb-4 d-flex align-items-center gap-3">
+        <img src="/assets/images/avatar.jpg" class="rounded-circle" width="80" height="80" alt="Avatar">
+        <div>
+          <h2 class="fw-bold mb-0">Hi, <span class="text-primary">Juan Pérez</span></h2>
+          <p class="text-muted">Human Resources Manager</p>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="dashboard-card bg-danger text-white">
+          <i class="bi bi-folder2-open fs-3"></i>
+          <h5 class="mt-2 fw-bold">Archivos</h5>
+          <p>Sección para gestionar archivos del personal.</p>
+        </div>
+
+        <div class="dashboard-card bg-success text-white">
+          <i class="bi bi-bar-chart fs-3"></i>
+          <h5 class="mt-2 fw-bold">Reportes</h5>
+          <p>Estadísticas y reportes mensuales.</p>
+        </div>
+
+        <div class="dashboard-card bg-primary text-white">
+          <i class="bi bi-cash-stack fs-3"></i>
+          <h5 class="mt-2 fw-bold">Nómina</h5>
+          <p>Calculadora y gestor de sueldos.</p>
+        </div>
+
+        <div class="dashboard-card bg-warning text-white">
+          <i class="bi bi-gear fs-3"></i>
+          <h5 class="mt-2 fw-bold">Configuración</h5>
+          <p>Ajustes generales del sistema.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

@@ -21,6 +21,12 @@ a {
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    text-shadow: 0 0 5px rgba($color-primary, 0.5);
+    transform: translateY(-1px);
   }
+}
+
+.fw-bold {
+  font-weight: 900;
+  color: $color-gradient-start;
 }
