@@ -1,0 +1,57 @@
+@use 'sass:color';
+@use './variables' as *;
+
+.btn {
+  font-weight: 600;
+  font-size: $font-sm;
+  border-radius: 2rem;
+  padding: 0.75rem 1.5rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// 🔵 Solid primary button (default)
+.btn-primary {
+  background-color: $color-button;
+  color: white;
+
+  &:hover {
+    background-color: color.adjust($color-button, $lightness: -10%);
+  }
+}
+
+// 🎨 Gradient button — FINAL VERSION
+.btn-gradient {
+  background: linear-gradient(
+    90deg,
+    #850287,
+    #6108e5
+  ); // 💜 Light purple gradient
+  color: white !important;     // ✅ Make sure text is white
+  font-weight: 700;
+  font-size: $font-sm;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  border: none;
+  display: inline-block;
+  width: 100%;
+  transition: all 0.3s ease;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

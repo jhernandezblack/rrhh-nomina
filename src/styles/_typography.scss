@@ -1,0 +1,26 @@
+@use './variables' as *;
+
+h3 {
+  font-size: $font-xl;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-size: $font-sm;
+  font-weight: 500;
+  color: $color-label;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+a {
+  font-size: $font-xs;
+  color: $color-button;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,105 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ title }}</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="onCancel()"></button>
+</div>
+
+<div class="modal-body">
+  <form [formGroup]="form">
+    <div class="mb-3" *ngFor="let field of formFields">
+      <label [for]="field.name" class="form-label">{{ field.label }}</label>
+      
+      <!-- Text Input -->
+      <input *ngIf="field.type === 'text' || field.type === 'email' || field.type === 'password' || field.type === 'number'"
+             [type]="field.type"
+             [id]="field.name"
+             [formControlName]="field.name"
+             [placeholder]="field.placeholder || ''"
+             [class.is-invalid]="getControl(field.name).touched && getControl(field.name).invalid"
+             class="form-control">
+      
+      <!-- Textarea -->
+      <textarea *ngIf="field.type === 'textarea'"
+                [id]="field.name"
+                [formControlName]="field.name"
+                [placeholder]="field.placeholder || ''"
+                [class.is-invalid]="getControl(field.name).touched && getControl(field.name).invalid"
+                class="form-control"
+                rows="3"></textarea>
+      
+      <!-- Select -->
+      <select *ngIf="field.type === 'select'"
+              [id]="field.name"
+              [formControlName]="field.name"
+              [class.is-invalid]="getControl(field.name).touched && getControl(field.name).invalid"
+              class="form-select">
+        <option *ngIf="!field.required" [value]="null">-- Select --</option>
+        <option *ngFor="let option of field.options" [value]="option.value">
+          {{ option.label }}
+        </option>
+      </select>
+      
+      <!-- Checkbox -->
+      <div *ngIf="field.type === 'checkbox'" class="form-check">
+        <input [id]="field.name"
+               type="checkbox"
+               [formControlName]="field.name"
+               class="form-check-input">
+        <label [for]="field.name" class="form-check-label">{{ field.label }}</label>
+      </div>
+      
+      <!-- Radio Group -->
+      <div *ngIf="field.type === 'radio'" class="form-group">
+        <div *ngFor="let option of field.options" class="form-check">
+          <input [id]="field.name + '-' + option.value"
+                 type="radio"
+                 [formControlName]="field.name"
+                 [value]="option.value"
+                 class="form-check-input">
+          <label [for]="field.name + '-' + option.value" class="form-check-label">
+            {{ option.label }}
+          </label>
+        </div>
+      </div>
+      
+      <!-- Date -->
+      <input *ngIf="field.type === 'date'"
+             type="date"
+             [id]="field.name"
+             [formControlName]="field.name"
+             [class.is-invalid]="getControl(field.name).touched && getControl(field.name).invalid"
+             class="form-control">
+      
+      <!-- Validation Messages -->
+      <div *ngIf="getControl(field.name).touched && getControl(field.name).invalid" class="invalid-feedback">
+        <div *ngIf="getControl(field.name).errors?.['required']">This field is required</div>
+        <div *ngIf="getControl(field.name).errors?.['minlength']">
+          Minimum length is {{ field.validation?.minLength }}
+        </div>
+        <div *ngIf="getControl(field.name).errors?.['maxlength']">
+          Maximum length is {{ field.validation?.maxLength }}
+        </div>
+        <div *ngIf="getControl(field.name).errors?.['min']">
+          Minimum value is {{ field.validation?.min }}
+        </div>
+        <div *ngIf="getControl(field.name).errors?.['max']">
+          Maximum value is {{ field.validation?.max }}
+        </div>
+        <div *ngIf="getControl(field.name).errors?.['pattern']">
+          Invalid format
+        </div>
+      </div>
+      
+      <!-- Hint Text -->
+      <small *ngIf="field.hint" class="form-text text-muted">{{ field.hint }}</small>
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="onCancel()">
+    {{ cancelText }}
+  </button>
+  <button type="button" class="btn btn-primary" (click)="onSave()">
+    {{ saveText }}
+  </button>
+</div>

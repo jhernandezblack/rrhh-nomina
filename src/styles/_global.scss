@@ -1,0 +1,11 @@
+@use './variables' as *;
+
+.section {
+  padding: 2rem 0;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}

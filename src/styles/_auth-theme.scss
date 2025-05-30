@@ -1,0 +1,37 @@
+@use './variables' as *;
+
+.auth-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, $color-gradient-start, $color-gradient-end);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3rem 2rem 2rem 2rem;
+  border-radius: $card-radius;
+  box-shadow: $card-shadow;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  text-align: center;
+}
+
+.auth-icon {
+  width: 60px;
+  height: 60px;
+  background-color: $color-primary;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}

@@ -1,0 +1,19 @@
+// Configuration
+@use "bootstrap/scss/variables";
+@use "bootstrap/scss/maps";
+@use "bootstrap/scss/mixins";
+@use "bootstrap/scss/utilities";
+
+// Your customizations
+$custom-colors: (
+  "custom": #8a2be2
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Layout & components
+@use "bootstrap/scss/root";
+@use "bootstrap/scss/reboot";
+// Import only the Bootstrap components you need
+@use "bootstrap/scss/buttons";
+@use "bootstrap/scss/card";

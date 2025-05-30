@@ -1,0 +1,34 @@
+// 🔵 Colors
+$color-primary: #1a9bdc; // Main blue
+$color-gradient-start: #7f00ff;
+$color-gradient-middle: #e100ff;
+$color-gradient-end: #ff6a00;
+
+$color-light: #f4f4f4;
+$color-bg: #ffffff;
+$color-input-bg: #e9f4fe;         // ✅ Light blue input background
+$color-text: #333333;
+$color-label: #666666;            // ✅ For label styling
+$color-muted: #999999;
+$color-link: #1a9bdc;             // ✅ For footer/login links
+$color-button: #ffffff;
+
+// 🔠 Typography
+$font-family-base: 'Segoe UI', Roboto, sans-serif;
+$font-base: 1rem;
+$font-sm: 0.85rem;
+$font-md: 1rem;
+$font-lg: 1.5rem;
+$font-xl: 2rem;                   // ✅ For headers like "Login Now"
+$font-xs: 0.75rem;
+
+// 🔲 Border-radius & shadows
+$input-radius: 2rem;
+$btn-radius: 2rem;
+$card-radius: 1rem;
+$card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+// 🔁 Spacing utilities (optional)
+$spacer-sm: 0.5rem;
+$spacer-md: 1rem;
+$spacer-lg: 2rem;
