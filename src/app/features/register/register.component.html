@@ -13,61 +13,65 @@
                 <h2 class="text-center mb-4 text-uppercase fw-bold" style="color: #7f00ff">Crea tu cuenta</h2>
 
                 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                    <!-- Email -->
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Correo electrónico</label>
-                        <input id="email" type="email" class="form-control" formControlName="email" />
-                    </div>
+                    <div class="row">
+                        <!-- Correo -->
+                        <div class="mb-3 col-12">
+                            <label class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" formControlName="email" />
+                        </div>
 
-                    <!-- Password -->
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <input id="password" type="password" class="form-control" formControlName="password" />
-                    </div>
+                        <!-- Contraseña y Confirmar contraseña -->
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" formControlName="password" />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Confirmar contraseña</label>
+                            <input type="password" class="form-control" formControlName="confirmPassword" />
+                        </div>
 
-                    <!-- Confirm Password -->
-                    <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirmar contraseña</label>
-                        <input id="confirmPassword" type="password" class="form-control"
-                            formControlName="confirmPassword" />
-                    </div>
+                        <!-- Nombre y Apellido -->
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Nombres</label>
+                            <input type="text" class="form-control" formControlName="name" />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Apellidos</label>
+                            <input type="text" class="form-control" formControlName="lastName" />
+                        </div>
 
-                    <!-- DNI -->
-                    <div class="mb-3">
-                        <label for="dni" class="form-label">DNI</label>
-                        <input id="dni" type="text" class="form-control" formControlName="dni" maxlength="8" />
-                    </div>
+                        <!-- DNI y Fecha de nacimiento -->
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">DNI</label>
+                            <input type="text" maxlength="8" class="form-control" formControlName="dni" />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Fecha de nacimiento</label>
+                            <input type="date" class="form-control" formControlName="birthDate" />
+                        </div>
 
-                    <!-- Fecha de Nacimiento -->
-                    <div class="mb-3">
-                        <label for="birthDate" class="form-label">Fecha de nacimiento</label>
-                        <input id="birthDate" type="date" class="form-control" formControlName="birthDate" />
-                    </div>
+                        <!-- Cargo y celular -->
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Cargo en la empresa</label>
+                            <input type="text" class="form-control" formControlName="position" />
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Celular</label>
+                            <input type="tel" maxlength="9" class="form-control" formControlName="phone" />
+                        </div>
 
-                    <!-- Cargo en la empresa -->
-                    <div class="mb-3">
-                        <label for="position" class="form-label">Cargo en la empresa</label>
-                        <input id="position" type="text" class="form-control" formControlName="position" />
-                    </div>
+                        <!-- Submit -->
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-gradient w-100" [disabled]="form.invalid">
+                                Registrarse
+                            </button>
+                        </div>
 
-                    <!-- Celular (Perú) -->
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Celular</label>
-                        <input id="phone" type="tel" class="form-control" formControlName="phone" maxlength="9" />
-                    </div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn btn-gradient w-100" [disabled]="form.invalid">
-                        Registrarse
-                    </button>
-
-                    <!-- Link to login -->
-                    <div class="text-center mt-3">
-                        <small>¿Ya tienes una cuenta?
-                            <a routerLink="/login" class="text-decoration-none" style="color: #7f00ff">
-                                Ingresar
-                            </a>
-                        </small>
+                        <div class="text-center mt-3">
+                            <small>¿Ya tienes una cuenta?
+                                <a routerLink="/login" class="text-decoration-none" style="color: #7f00ff">Ingresar</a>
+                            </small>
+                        </div>
                     </div>
                 </form>
             </div>

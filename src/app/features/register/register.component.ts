@@ -25,11 +25,20 @@ export class RegisterComponent {
     dni: ['', [Validators.required, Validators.pattern(/^\d{8}$/)]],
     birthDate: ['', [Validators.required]],
     position: ['', [Validators.required]],
+    name: ['', [Validators.required]],
+    lastName: ['', [Validators.required]],
     phone: ['', [Validators.required, Validators.pattern(/^9\d{8}$/)]]
   });
 
   get dni() {
     return this.form.get('dni');
+  }
+  get name() {
+    return this.form.get('name');
+  }
+
+  get lastName() {
+    return this.form.get('lastName');
   }
 
   get birthDate() {
@@ -63,7 +72,7 @@ export class RegisterComponent {
       return;
     }
 
-    const { email, password, confirmPassword, dni, birthDate, position, phone } = this.form.value;
+    const { email, password, confirmPassword, dni, name, lastName, birthDate, position, phone } = this.form.value;
 
     if (password !== confirmPassword) {
       this.alert.error('Error', 'Las contraseñas no coinciden.');
@@ -84,6 +93,8 @@ export class RegisterComponent {
       await this.auth.saveUserProfile(user.uid, {
         email,
         dni,
+        name,
+        lastName,
         birthDate,
         position,
         phone,
@@ -97,6 +108,8 @@ export class RegisterComponent {
         'Registro exitoso',
         'Tu cuenta ha sido creada. Por favor revisa tu correo y verifica tu cuenta antes de iniciar sesión.'
       );
+
+      await this.auth.logout();
 
       this.router.navigate(['/login']);
     } catch (error: any) {
