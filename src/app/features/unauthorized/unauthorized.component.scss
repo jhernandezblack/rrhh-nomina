@@ -1,0 +1,21 @@
+.unauthorized-container {
+  height: 100vh;
+  background-color: #f8f9fa; // gris claro Bootstrap
+  padding: 2rem;
+
+  h1 {
+    color: #dc3545; // rojo Bootstrap danger
+  }
+
+  .btn-gradient {
+    background: linear-gradient(to right, #7f00ff, #e100ff);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(to right, #e100ff, #7f00ff);
+    }
+  }
+}

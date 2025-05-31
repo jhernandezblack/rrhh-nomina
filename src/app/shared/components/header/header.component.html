@@ -2,16 +2,67 @@
   <div class="container d-flex justify-content-between align-items-center">
     <div class="logo text-white fw-bold">RRHH NóMINA</div>
 
-    <nav class="nav gap-4">
-      <a class="nav-link" routerLink="/">Inicio</a>
-      <a class="nav-link" routerLink="/soluciones">Soluciones</a>
-      <a class="nav-link" routerLink="/recursos">Recursos</a>
-      <a class="nav-link" routerLink="/contacto">Contacto</a>
-    </nav>
+    <!-- Mostrar menú si hay sesión -->
+    <ng-container *ngIf="(user$ | async) as user; else showPublic">
+      <nav class="nav gap-4">
+        <a class="nav-link" routerLink="/">Inicio</a>
+        <a class="nav-link" routerLink="/soluciones">Soluciones</a>
+        <a class="nav-link" routerLink="/recursos">Recursos</a>
+        <a class="nav-link" routerLink="/main">Principal</a>
+      </nav>
+      <div class="dropdown">
+        <button class="btn btn-light btn-sm dropdown-toggle d-flex align-items-center" type="button"
+          data-bs-toggle="dropdown">
+          <i class="bi bi-person-circle me-2 fs-4 text-primary"></i>
+          <span class="d-none d-md-inline">Cuenta</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <a class="dropdown-item d-flex align-items-center gap-2" routerLink="/profile">
+              <i class="bi bi-person-fill text-info"></i> Perfil
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item d-flex align-items-center gap-2" routerLink="/change-password">
+              <i class="bi bi-key-fill text-warning"></i> Cambiar contraseña
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item d-flex align-items-center gap-2" routerLink="/roles">
+              <i class="bi bi-people-fill text-success"></i> Roles
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item d-flex align-items-center gap-2" routerLink="/access-list">
+              <i class="bi bi-card-list text-secondary"></i> Lista de accesos
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider" />
+          </li>
+          <li>
+            <button class="dropdown-item d-flex align-items-center gap-2" (click)="logout()">
+              <i class="bi bi-box-arrow-right text-danger"></i> Cerrar sesión
+            </button>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
 
-    <div class="actions d-flex gap-2">
-      <a class="btn btn-outline-light btn-sm" routerLink="/contacto">Contáctanos</a>
-      <a class="btn btn-light btn-sm text-primary" routerLink="/login">Ingresar</a>
-    </div>
+    <!-- Mostrar público si no hay sesión -->
+    <ng-template #showPublic>
+      <ng-container *ngIf="isPublicRoute">
+        <nav class="nav gap-4">
+          <a class="nav-link" routerLink="/">Inicio</a>
+          <a class="nav-link" routerLink="/soluciones">Soluciones</a>
+          <a class="nav-link" routerLink="/recursos">Recursos</a>
+          <a class="nav-link" routerLink="/contacto">Contacto</a>
+        </nav>
+        <div class="actions d-flex gap-2">
+          <a class="btn btn-outline-light btn-sm" routerLink="/contacto">Contáctanos</a>
+          <a class="btn btn-light btn-sm text-primary" routerLink="/login">Ingresar</a>
+        </div>
+      </ng-container>
+    </ng-template>
   </div>
 </header>

@@ -12,6 +12,15 @@ export class SweetAlertService {
     });
   }
 
+  warning(title: string, text?: string) {
+    Swal.fire({
+      icon: 'warning',
+      title,
+      text,
+      confirmButtonColor: '#f0ad4e' // Optional: Bootstrap warning color
+    });
+  }
+
   error(title: string, text?: string) {
     Swal.fire({
       icon: 'error',

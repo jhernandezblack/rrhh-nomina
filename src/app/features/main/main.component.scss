@@ -1,44 +1,20 @@
-// src/app/features/main/main.component.scss
 @use 'sass:color';
 @use '../../../styles/auth-theme';
 @use '../../../styles/variables' as *;
+@use '../../../styles/sidebar';
+@use '../../../styles/topbar'; // ✅ NEW
 
 .main-layout {
   display: flex;
-  flex-direction: column;
-  height: 100vh;
+  flex-direction: row; // <--- important change
+  min-height: 100vh;   // <--- ensures full vertical stretch
   font-family: $font-family-base;
 }
 
-.topbar {
-  height: 60px;
-  background: linear-gradient(to right, $color-gradient-start, $color-gradient-end);
-  color: white;
-}
-
-.sidebar {
-  width: 220px;
-  background-color: color.adjust($color-primary, $lightness: -35%);
-  padding: $spacer-md;
-  color: white;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar li {
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.5rem;
-  border-radius: $card-radius;
-  transition: background 0.3s;
-  cursor: pointer;
-}
-
-.sidebar li.active, .sidebar li:hover {
-  background-color: color.adjust($color-primary, $lightness: 10%);
+.main-container {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
 }
 
 .content {
@@ -58,8 +34,8 @@
   border-radius: $card-radius;
   box-shadow: $card-shadow;
   transition: transform 0.2s;
-}
 
-.dashboard-card:hover {
-  transform: translateY(-5px);
+  &:hover {
+    transform: translateY(-5px);
+  }
 }

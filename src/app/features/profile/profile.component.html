@@ -1,1 +1,95 @@
-<p>profile works!</p>
+<div class="container py-4">
+    <div class="row g-4">
+        <!-- Left Column: Profile Image + Password -->
+        <div class="col-md-4">
+            <div class="card text-center p-4">
+                <div class="position-relative mx-auto mb-3" style="width: 160px; height: 160px;">
+                    <ng-container *ngIf="userData?.photoURL; else defaultIcon">
+                        <img
+                            [src]="userData.photoURL"
+                            class="rounded-circle object-fit-cover border"
+                            alt="Avatar"
+                            style="width: 100%; height: 100%; background-color: #f7f7f7;"
+                        />
+                    </ng-container>
+
+                    <ng-template #defaultIcon>
+                        <div class="d-flex justify-content-center align-items-center rounded-circle bg-light border"
+                            style="width: 100%; height: 100%; font-size: 64px; color: #ccc;">
+                            <i class="bi bi-person-circle"></i>
+                        </div>
+                    </ng-template>
+                </div>
+
+                <input type="file" #fileInput class="d-none" (change)="onFileSelected($event)" />
+                <button class="btn btn-outline-secondary btn-sm w-100" (click)="fileInput.click()">
+                    Subir Foto
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Column: Profile Information -->
+        <div class="col-md-8">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="fw-bold">Perfil de Usuario</h4>
+                <div>
+                    <button class="btn btn-sm btn-outline-primary" (click)="toggleEdit()" *ngIf="!isEditing">
+                        <i class="bi bi-pencil-square me-1 text-primary fs-5"></i> Editar
+                    </button>
+                    <button class="btn btn-sm btn-success" (click)="saveChanges()" *ngIf="isEditing">
+                        <i class="bi bi-save me-1 text-light fs-5"></i> Guardar
+                    </button>
+                </div>
+            </div>
+
+            <div class="card p-4">
+                <h5 class="fw-bold mb-3">Información de Perfil</h5>
+                <div class="row mb-3">
+                    <ng-container *ngIf="userData">
+                        <div class="col-md-6">
+                            <label class="form-label">Nombres</label>
+                            <input class="form-control" [(ngModel)]="userData.name" [disabled]="!isEditing">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Apellidos</label>
+                            <input class="form-control" [(ngModel)]="userData.lastName" [disabled]="!isEditing">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Puesto Laboral</label>
+                            <input class="form-control" [(ngModel)]="userData.position" [disabled]="!isEditing">
+                        </div>
+                    </ng-container>
+                </div>
+
+                <ng-container *ngIf="userData">
+                    <h5 class="fw-bold mb-3">Información de Contacto</h5>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Correo Electrónico</label>
+                            <input class="form-control" [(ngModel)]="userData.email" [disabled]="!isEditing">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Celular</label>
+                            <input class="form-control" [(ngModel)]="userData.phone" [disabled]="!isEditing">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Website</label>
+                            <input class="form-control" [(ngModel)]="userData.website" [disabled]="!isEditing">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">LinkedIn</label>
+                            <input class="form-control" [(ngModel)]="userData.linkedin" [disabled]="!isEditing">
+                        </div>
+                    </div>
+
+                    <h5 class="fw-bold mb-3">Acerca del Usuario</h5>
+                    <div>
+                        <label class="form-label">Biografía</label>
+                        <textarea class="form-control" rows="4" [(ngModel)]="userData.bio"
+                            [disabled]="!isEditing"></textarea>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

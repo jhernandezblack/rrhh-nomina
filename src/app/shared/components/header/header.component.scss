@@ -26,3 +26,15 @@
     font-size: 0.85rem;
   }
 }
+
+.dropdown-menu .dropdown-item {
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: #f0f0f0;
+  }
+  i {
+    font-size: 1rem;
+  }
+}
