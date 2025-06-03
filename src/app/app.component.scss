@@ -1,4 +1,34 @@
-.main-content {
-  margin-top: 80px; // o lo que mida tu header
-  padding-bottom: 40px;
+.layout-wrapper {
+  flex-grow: 1;
+  display: flex;
+  overflow: hidden;
+
+  app-sidebar {
+    width: 220px;
+    transition: width 0.3s ease;
+    background-color: #0d2235;
+    flex-shrink: 0;
+  }
+
+  &.sidebar-collapsed app-sidebar {
+    width: 60px !important;
+  }
+
+  .content-area {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden; // 🚫 prevents inner double scroll
+  }
+
+  main {
+    flex-grow: 1;
+    overflow-y: auto; // ✅ only this scrolls
+    padding: 1rem;
+  }
+
+  app-footer {
+    height: 60px;
+    flex-shrink: 0;
+  }
 }

@@ -4,6 +4,8 @@ import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { AuthService } from '../../../core/auth/services/auth.service';
 import { Observable, filter } from 'rxjs';
 import { User } from '@angular/fire/auth';
+//sidebar
+import { SidebarService } from '../../../core/services/sidebar.service';
 
 
 @Component({
@@ -18,7 +20,12 @@ export class HeaderComponent implements OnInit {
   currentRoute = '';
   isPublicRoute = false;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(
+    private auth: AuthService, 
+    private router: Router,
+    private sidebarService: SidebarService
+  ) {
+  }
 
   ngOnInit(): void {
     this.user$ = this.auth.user$;

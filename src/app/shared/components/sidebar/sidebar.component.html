@@ -1,0 +1,57 @@
+<aside class="sidebar" [class.collapsed]="isCollapsed">
+  <!-- Collapse/Expand button -->
+  <div class="d-flex justify-content-end px-3 pt-3">
+    <button class="btn btn-light btn-sm toggle-btn" (click)="toggleSidebar()">
+      <i class="bi" [ngClass]="isCollapsed ? 'bi-chevron-right' : 'bi-chevron-left'"></i>
+    </button>
+  </div>
+
+  <!-- Sidebar Menu -->
+  <ul class="list-unstyled px-2 pt-2">
+
+    <li routerLink="/main" routerLinkActive="active" class="d-flex align-items-center">
+      <i class="bi bi-folder"></i>
+      <span *ngIf="!isCollapsed" class="ms-2">Archivos</span>
+    </li>
+
+    <li routerLink="/reportes" routerLinkActive="active" class="d-flex align-items-center">
+      <i class="bi bi-bar-chart"></i>
+      <span *ngIf="!isCollapsed" class="ms-2">Reportes</span>
+    </li>
+
+    <li routerLink="/nomina" routerLinkActive="active" class="d-flex align-items-center">
+      <i class="bi bi-currency-dollar"></i>
+      <span *ngIf="!isCollapsed" class="ms-2">Nómina</span>
+    </li>
+
+    <li routerLink="/documentos" routerLinkActive="active" class="d-flex align-items-center">
+      <i class="bi bi-file-earmark"></i>
+      <span *ngIf="!isCollapsed" class="ms-2">Documentos</span>
+    </li>
+
+    <li routerLink="/horario" routerLinkActive="active" class="d-flex align-items-center">
+      <i class="bi bi-clock"></i>
+      <span *ngIf="!isCollapsed" class="ms-2">Horario</span>
+    </li>
+
+    <!-- Expandable "Configuración" -->
+    <li (click)="toggleConfigMenu()" class="d-flex align-items-center config-toggle">
+      <i class="bi bi-gear"></i>
+      <span *ngIf="!isCollapsed" class="ms-2">Configuración</span>
+      <i *ngIf="!isCollapsed" class="bi ms-auto" [ngClass]="showConfigMenu ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+    </li>
+
+    <!-- Submenu -->
+    <ul *ngIf="showConfigMenu && !isCollapsed" class="submenu ms-4 list-unstyled">
+      <li routerLink="/employee" routerLinkActive="active" class="d-flex align-items-center mb-1">
+        <i class="bi bi-person-plus"></i>
+        <span class="ms-2">Crear Empleado</span>
+      </li>
+      <li routerLink="/reglas" routerLinkActive="active" class="d-flex align-items-center">
+        <i class="bi bi-sliders"></i>
+        <span class="ms-2">Ingresar Reglas</span>
+      </li>
+    </ul>
+
+  </ul>
+</aside>

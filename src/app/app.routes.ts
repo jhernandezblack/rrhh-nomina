@@ -7,6 +7,7 @@ import { ProfileComponent } from './features/profile/profile.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 // Pages after login
 import { MainComponent } from './features/main/main.component';
+import { EmployeeComponent } from './features/employee/employee.component';
 
 // protect page after login
 import { roleGuard } from '../app/core/auth/guards/role.guard';
@@ -22,4 +23,11 @@ export const routes: Route[] = [
   // other routes...
   { path: 'main', component: MainComponent, canActivate: [roleGuard('admin', 'user')] },
   { path: 'profile', component: ProfileComponent, canActivate: [roleGuard('admin', 'user')] },
+  {
+    path: 'employee',
+    loadComponent: () =>
+      import('./features/employee/employee.component').then(m => m.EmployeeComponent),
+    canActivate: [roleGuard('admin', 'user')]
+  },
+ // { path: 'sidebar', component: SidebarComponent, canActivate: [roleGuard('admin', 'user')] },
 ];

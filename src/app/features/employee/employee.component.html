@@ -1,0 +1,89 @@
+<div class="container my-4">
+  <div class="card shadow-sm p-4 rounded-4">
+    <h2 class="mb-4 text-primary fw-bold">Registrar Empleado</h2>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="employeeForm">
+      <div class="row g-3">
+
+        <!-- Nombre -->
+        <div class="col-md-6">
+          <label for="nombre" class="form-label fw-semibold">Nombre</label>
+          <input
+            type="text"
+            id="nombre"
+            class="form-control"
+            formControlName="nombre"
+            placeholder="Juan Pablo"
+          />
+        </div>
+
+        <!-- Apellido -->
+        <div class="col-md-6">
+          <label for="apellido" class="form-label fw-semibold">Apellido</label>
+          <input
+            type="text"
+            id="apellido"
+            class="form-control"
+            formControlName="apellido"
+            placeholder="Hernandez"
+          />
+        </div>
+
+        <!-- Correo -->
+        <div class="col-md-6">
+          <label for="correo" class="form-label fw-semibold">Correo Electrónico</label>
+          <input
+            type="email"
+            id="correo"
+            class="form-control"
+            formControlName="correo"
+            placeholder="juan@email.com"
+          />
+        </div>
+
+        <!-- DNI -->
+        <div class="col-md-6">
+          <label for="dni" class="form-label fw-semibold">DNI</label>
+          <input
+            type="text"
+            id="dni"
+            class="form-control"
+            formControlName="dni"
+            placeholder="12345678"
+          />
+        </div>
+
+        <!-- Cargo -->
+        <div class="col-md-6">
+          <label for="cargo" class="form-label fw-semibold">Cargo</label>
+          <input
+            type="text"
+            id="cargo"
+            class="form-control"
+            formControlName="cargo"
+            placeholder="Analista RRHH"
+          />
+        </div>
+
+        <!-- Fecha de ingreso -->
+        <div class="col-md-6">
+          <label for="fechaIngreso" class="form-label fw-semibold">Fecha de Ingreso</label>
+          <input
+            type="date"
+            id="fechaIngreso"
+            class="form-control"
+            formControlName="fechaIngreso"
+          />
+        </div>
+
+      </div>
+
+      <!-- Botón -->
+      <div class="mt-4 text-end">
+        <button class="btn btn-gradient" type="submit" [disabled]="employeeForm.invalid">
+          Registrar Empleado
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

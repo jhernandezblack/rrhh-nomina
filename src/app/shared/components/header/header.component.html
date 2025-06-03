@@ -1,9 +1,11 @@
 <header class="app-header">
   <div class="container d-flex justify-content-between align-items-center">
-    <div class="logo text-white fw-bold">RRHH NóMINA</div>
 
+    <div class="logo text-white fw-bold">RRHH NóMINA</div>
     <!-- Mostrar menú si hay sesión -->
     <ng-container *ngIf="(user$ | async) as user; else showPublic">
+
+      
       <nav class="nav gap-4">
         <a class="nav-link" routerLink="/">Inicio</a>
         <a class="nav-link" routerLink="/soluciones">Soluciones</a>
@@ -52,6 +54,7 @@
     <!-- Mostrar público si no hay sesión -->
     <ng-template #showPublic>
       <ng-container *ngIf="isPublicRoute">
+
         <nav class="nav gap-4">
           <a class="nav-link" routerLink="/">Inicio</a>
           <a class="nav-link" routerLink="/soluciones">Soluciones</a>
